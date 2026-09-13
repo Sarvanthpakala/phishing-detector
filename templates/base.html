@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}SENTRA — AI Phishing Detection{% endblock %}</title>
+<meta name="description" content="SENTRA is a real-time AI/ML-powered phishing detection and prevention console that scores URLs for risk with explainable AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%230a0d14%22/><path d=%22M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z%22 fill=%22%2300e5c7%22/></svg>">
+{% block head %}{% endblock %}
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="{{ url_for('home') }}" class="brand"><span class="dot"></span> SENTRA</a>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}" class="{{ 'active' if active=='home' }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}" class="{{ 'active' if active=='about' }}">About</a></li>
+      <li><a href="{{ url_for('scanner') }}" class="{{ 'active' if active=='scanner' }}">Scanner</a></li>
+      <li><a href="{{ url_for('dashboard') }}" class="{{ 'active' if active=='dashboard' }}">Dashboard</a></li>
+      <li><a href="{{ url_for('analytics') }}" class="{{ 'active' if active=='analytics' }}">Analytics</a></li>
+      <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active=='contact' }}">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+      <a href="{{ url_for('scanner') }}" class="btn btn-primary" style="padding:10px 18px;">Scan a URL</a>
+      <button class="nav-burger btn-ghost btn" style="padding:8px 12px;" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom:14px;"><span class="dot"></span> SENTRA</div>
+        <p style="max-width:280px;">Real-time AI/ML phishing detection and prevention console — scan, explain, and act on URL risk in milliseconds.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <a href="{{ url_for('scanner') }}">URL Scanner</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('analytics') }}">Analytics</a>
+      </div>
+      <div class="footer-col">
+        <h5>Project</h5>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>System</h5>
+        <a href="#">8 ML Algorithms Compared</a>
+        <a href="#">15 Engineered Features</a>
+        <a href="#">Explainable AI Output</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SENTRA — Academic AI/ML Cybersecurity Project.</span>
+      <span class="mono">v1.0.0 · Flask + Scikit-learn</span>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

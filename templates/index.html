@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}SENTRA — Real-Time AI Phishing Detection{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow">Real-time · Explainable AI · 8 Models Benchmarked</span>
+      <h1>Detect phishing links <span class="grad">before they detect you.</span></h1>
+      <p class="hero-sub">SENTRA extracts 15 lexical &amp; structural signals from any URL, runs them through the strongest of eight benchmarked machine-learning models, and returns a verdict with a confidence score and a plain-English reason list — in real time.</p>
+      <div class="hero-cta">
+        <a href="{{ url_for('scanner') }}" class="btn btn-primary">Scan a URL now →</a>
+        <a href="{{ url_for('analytics') }}" class="btn btn-ghost">View model benchmarks</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num"><span data-counter="8" data-suffix="">0</span></div><div class="label">ML Algorithms</div></div>
+        <div class="hero-stat"><div class="num"><span data-counter="15" data-suffix="">0</span></div><div class="label">Engineered Features</div></div>
+        <div class="hero-stat"><div class="num"><span data-counter="99.9" data-decimals="1" data-suffix="%">0</span></div><div class="label">Test Accuracy</div></div>
+        <div class="hero-stat"><div class="num">&lt;<span data-counter="50" data-suffix="ms">0</span></div><div class="label">Avg. Response</div></div>
+      </div>
+    </div>
+
+    <div class="scan-console reveal in">
+      <div class="console-frame">
+        <div class="console-topbar">
+          <span class="tdot" style="background:var(--danger);"></span>
+          <span class="tdot" style="background:var(--amber);"></span>
+          <span class="tdot" style="background:var(--teal);"></span>
+          <span class="tlabel mono">live_scan.sh</span>
+        </div>
+        <div class="console-input-row">
+          <div class="scan-line"></div>
+          <span style="color:var(--teal);">$</span>
+          <span>scan --url "http://secure-paypal-verify.tk/login"</span>
+        </div>
+        <div class="console-body">
+          <div class="gauge-wrap">
+            <div class="gauge" style="--pct:87; background:conic-gradient(var(--danger) 87%, var(--surface-2) 0);">
+              <div class="gauge-value">
+                <div class="pct">87%</div>
+                <div class="tag">phishing risk</div>
+              </div>
+            </div>
+            <span class="tag critical">Critical threat</span>
+          </div>
+          <div class="console-readout">
+            <div class="readout-row"><span class="k">HTTPS</span><span class="v danger">absent</span></div>
+            <div class="readout-row"><span class="k">Keyword hits</span><span class="v danger">4 found</span></div>
+            <div class="readout-row"><span class="k">Entropy</span><span class="v danger">4.61</span></div>
+            <div class="readout-row"><span class="k">Model</span><span class="v">Random Forest</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>A complete detection pipeline, not just a classifier.</h2>
+      <p>From raw URL to explained verdict — every stage of the pipeline is visible and auditable.</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/></svg>
+        </div>
+        <h3>Explainable verdicts</h3>
+        <p>Every prediction ships with the specific structural red flags that drove it — not just a probability number.</p>
+      </div>
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 4 5-8"/></svg>
+        </div>
+        <h3>8 models benchmarked</h3>
+        <p>Logistic Regression, Decision Tree, Random Forest, KNN, SVM, Naive Bayes, XGBoost and LightGBM — the strongest performer is auto-selected.</p>
+      </div>
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </div>
+        <h3>15 engineered features</h3>
+        <p>URL length, entropy, subdomain depth, keyword density, IP hosting, shorteners and more — computed in milliseconds.</p>
+      </div>
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 5l6 4-6 4M14 19V9M14 9l6 4-6 6"/></svg>
+        </div>
+        <h3>Live analytics dashboard</h3>
+        <p>Track scan history, threat distribution, and model performance metrics from one console.</p>
+      </div>
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3>REST API-first</h3>
+        <p>A clean JSON API (<code>/api/predict</code>) powers the UI and can be called directly from any client.</p>
+      </div>
+      <div class="feature-card bracket-panel reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <h3>Portfolio-grade UI</h3>
+        <p>Glassmorphism, animated threat gauges and scroll-triggered motion — built to impress reviewers, not just function.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From link to verdict in four steps.</h2>
+    </div>
+    <div class="process-row">
+      <div class="process-item reveal">
+        <div class="process-num">01</div>
+        <div class="process-text"><h4>Submit a URL</h4><p>Paste any link into the Scanner or POST it to the <code>/api/predict</code> endpoint.</p></div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num">02</div>
+        <div class="process-text"><h4>Feature extraction</h4><p>15 lexical and structural signals are computed instantly — length, entropy, keywords, IP hosting, and more.</p></div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num">03</div>
+        <div class="process-text"><h4>Model inference</h4><p>The best-performing of eight trained classifiers scores the feature vector and returns a probability.</p></div>
+      </div>
+      <div class="process-item reveal">
+        <div class="process-num">04</div>
+        <div class="process-text"><h4>Explained verdict</h4><p>A threat level, confidence score, and human-readable reasons are returned and logged to your dashboard.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="bracket-panel reveal" style="text-align:center;padding:64px 40px;">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h2 style="max-width:560px;margin:0 auto 14px;">Ready to see it catch a phishing link?</h2>
+      <p style="max-width:480px;margin:0 auto 30px;">Try one of the built-in examples or paste your own URL — results appear in under a second.</p>
+      <a href="{{ url_for('scanner') }}" class="btn btn-primary">Open the Scanner →</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

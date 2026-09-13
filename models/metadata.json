@@ -1,0 +1,109 @@
+{
+  "best_model": "Decision Tree",
+  "feature_names": [
+    "url_length",
+    "num_dots",
+    "num_digits",
+    "num_hyphens",
+    "has_https",
+    "has_at_symbol",
+    "has_ip",
+    "num_redirects",
+    "num_subdomains",
+    "suspicious_keyword_count",
+    "url_entropy",
+    "special_char_count",
+    "num_slashes",
+    "digit_ratio",
+    "has_shortener"
+  ],
+  "metrics_by_model": {
+    "Logistic Regression": {
+      "accuracy": 0.9982698961937716,
+      "precision": 0.9966777408637874,
+      "recall": 1.0,
+      "f1": 0.9983361064891847,
+      "roc_auc": 0.9999580335731414,
+      "train_seconds": 0.009
+    },
+    "Decision Tree": {
+      "accuracy": 0.9991349480968859,
+      "precision": 0.9983361064891847,
+      "recall": 1.0,
+      "f1": 0.9991673605328892,
+      "roc_auc": 0.9991007194244604,
+      "train_seconds": 0.007
+    },
+    "Random Forest": {
+      "accuracy": 0.9991349480968859,
+      "precision": 0.9983361064891847,
+      "recall": 1.0,
+      "f1": 0.9991673605328892,
+      "roc_auc": 0.9999940047961631,
+      "train_seconds": 0.426
+    },
+    "KNN": {
+      "accuracy": 0.9991349480968859,
+      "precision": 0.9983361064891847,
+      "recall": 1.0,
+      "f1": 0.9991673605328892,
+      "roc_auc": 1.0,
+      "train_seconds": 0.009
+    },
+    "SVM": {
+      "accuracy": 0.9991349480968859,
+      "precision": 0.9983361064891847,
+      "recall": 1.0,
+      "f1": 0.9991673605328892,
+      "roc_auc": 1.0,
+      "train_seconds": 0.138
+    },
+    "Naive Bayes": {
+      "accuracy": 0.9688581314878892,
+      "precision": 0.9947368421052631,
+      "recall": 0.945,
+      "f1": 0.9692307692307692,
+      "roc_auc": 0.9957643884892087,
+      "train_seconds": 0.002
+    }
+  },
+  "best_metrics": {
+    "accuracy": 0.9991349480968859,
+    "precision": 0.9983361064891847,
+    "recall": 1.0,
+    "f1": 0.9991673605328892,
+    "roc_auc": 0.9991007194244604,
+    "train_seconds": 0.007
+  },
+  "confusion_matrix": [
+    [
+      555,
+      1
+    ],
+    [
+      0,
+      600
+    ]
+  ],
+  "feature_importance": {
+    "digit_ratio": 0.6122259228795718,
+    "has_https": 0.14166223829795344,
+    "special_char_count": 0.08281543618505607,
+    "num_hyphens": 0.07402548258157829,
+    "num_slashes": 0.060992366012561444,
+    "suspicious_keyword_count": 0.017222013477086406,
+    "has_shortener": 0.005748104959914441,
+    "num_dots": 0.005165364387913354,
+    "url_entropy": 0.00014307121836482857,
+    "num_subdomains": 0.0,
+    "num_redirects": 0.0,
+    "has_at_symbol": 0.0,
+    "has_ip": 0.0,
+    "num_digits": 0.0,
+    "url_length": 0.0
+  },
+  "train_rows": 4621,
+  "test_rows": 1156,
+  "xgboost_available": false,
+  "lightgbm_available": false
+}

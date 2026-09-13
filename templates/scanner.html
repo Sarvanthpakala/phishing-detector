@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}URL Scanner — SENTRA{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Live prediction</span>
+    <h1>Scan a URL</h1>
+    <p style="max-width:600px;font-size:1.02rem;">Paste any link below. SENTRA extracts its features, runs the trained model, and returns a verdict with a confidence score and explainable reasons.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px;">
+  <div class="container scanner-shell">
+
+    <div class="bracket-panel scan-input-panel reveal">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <h3>Enter a URL to analyze</h3>
+      <form id="scan-form">
+        <div class="input-row">
+          <input type="text" id="url-input" class="url-input" placeholder="https://example.com/login" autocomplete="off" required>
+          <button type="submit" class="btn btn-primary">Scan</button>
+        </div>
+      </form>
+      <div class="example-chips">
+        <span class="chip" data-url="https://github.com/login">github.com/login</span>
+        <span class="chip" data-url="http://192.168.4.21/paypal-secure/verify.php">raw-IP login page</span>
+        <span class="chip" data-url="http://secure-appleid-verify.tk/account/update">typosquat + keywords</span>
+        <span class="chip" data-url="https://bit.ly/3xample">shortener link</span>
+      </div>
+      <div class="loader-wrap" id="scan-loader" style="display:none;">
+        <div class="spinner"></div>
+        <span class="mono" style="font-size:.85rem;color:var(--text-muted);">Extracting features &amp; running inference…</span>
+      </div>
+    </div>
+
+    <div class="bracket-panel reveal" id="result-panel" style="transition:opacity .3s;">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div style="text-align:center;padding:40px 10px;color:var(--text-dim);">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:14px;"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/></svg>
+        <p style="margin:0;">Results will appear here once you scan a URL.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — SENTRA{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Operations</span>
+    <h1>Dashboard</h1>
+    <p style="max-width:600px;">Live view of every scan run through this session — refreshes automatically every 15 seconds.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px;">
+  <div class="container">
+
+    <div class="kpi-row">
+      <div class="bracket-panel kpi-card reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="kpi-top"><span class="kpi-label">Total scans</span><div class="kpi-icon" style="background:var(--teal-dim);color:var(--teal);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div></div>
+        <div class="kpi-val" id="kpi-total">0</div>
+      </div>
+      <div class="bracket-panel kpi-card reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="kpi-top"><span class="kpi-label">Flagged phishing</span><div class="kpi-icon" style="background:var(--danger-dim);color:var(--danger);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2.5 18a1 1 0 00.9 1.5h17.2a1 1 0 00.9-1.5L13.7 3.9a1 1 0 00-1.8 0z"/></svg></div></div>
+        <div class="kpi-val" id="kpi-phishing">0</div>
+      </div>
+      <div class="bracket-panel kpi-card reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="kpi-top"><span class="kpi-label">Confirmed safe</span><div class="kpi-icon" style="background:var(--teal-dim);color:var(--teal);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/></svg></div></div>
+        <div class="kpi-val" id="kpi-safe">0</div>
+      </div>
+      <div class="bracket-panel kpi-card reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="kpi-top"><span class="kpi-label">Model accuracy</span><div class="kpi-icon" style="background:var(--violet-dim);color:var(--violet);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/></svg></div></div>
+        <div class="kpi-val" id="kpi-acc">—</div>
+      </div>
+    </div>
+
+    <div class="bracket-panel reveal">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div class="flex-between" style="margin-bottom:18px;">
+        <h3 style="margin:0;">Recent scans</h3>
+        <a href="{{ url_for('scanner') }}" class="btn btn-ghost" style="padding:8px 16px;font-size:.82rem;">New scan →</a>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="history-table">
+          <thead><tr><th>Timestamp</th><th>URL</th><th>Verdict</th><th>Confidence</th><th>Threat</th></tr></thead>
+          <tbody id="history-body">
+            <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:28px;">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
