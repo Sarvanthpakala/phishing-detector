@@ -1,0 +1,4 @@
+# Keep GitHub's primary-language classification focused on the Python backend.
+templates/**/*.html linguist-vendored
+static/**/*.css linguist-vendored
+static/**/*.js linguist-vendored
